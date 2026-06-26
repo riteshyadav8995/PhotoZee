@@ -1,6 +1,7 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import { AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 
 // Components
 import Navbar from "@/components/Navbar";
@@ -15,6 +16,16 @@ import Portfolio from "@/pages/Portfolio";
 import Testimonials from "@/pages/Testimonials";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
+
+function ScrollToTop() {
+  const [pathname] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function Router() {
   return (
@@ -35,6 +46,7 @@ function Router() {
 function App() {
   return (
     <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col font-sans">
         <Navbar />
         <main className="flex-grow">

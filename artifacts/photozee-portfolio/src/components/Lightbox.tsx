@@ -25,9 +25,10 @@ export default function Lightbox({ item, onClose, onNext, onPrev }: LightboxProp
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!item) return;
+      const isMedia = item.category === "videos" || item.category === "reels";
       if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") onNext();
-      if (e.key === "ArrowLeft") onPrev();
+      if (e.key === "ArrowRight" && !isMedia) onNext();
+      if (e.key === "ArrowLeft" && !isMedia) onPrev();
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -35,6 +36,8 @@ export default function Lightbox({ item, onClose, onNext, onPrev }: LightboxProp
   }, [item, onClose, onNext, onPrev]);
 
   if (!item) return null;
+
+  const isMedia = item.category === "videos" || item.category === "reels";
 
   return (
     <AnimatePresence>
@@ -52,19 +55,23 @@ export default function Lightbox({ item, onClose, onNext, onPrev }: LightboxProp
           <X size={32} />
         </button>
 
-        <button
-          onClick={(e) => { e.stopPropagation(); onPrev(); }}
-          className="absolute left-4 md:left-10 text-white/50 hover:text-primary transition-colors p-4 z-50"
-        >
-          <ChevronLeft size={48} strokeWidth={1} />
-        </button>
+        {!isMedia && (
+          <>
+            <button
+              onClick={(e) => { e.stopPropagation(); onPrev(); }}
+              className="absolute left-4 md:left-10 text-white/50 hover:text-primary transition-colors p-4 z-50"
+            >
+              <ChevronLeft size={48} strokeWidth={1} />
+            </button>
 
-        <button
-          onClick={(e) => { e.stopPropagation(); onNext(); }}
-          className="absolute right-4 md:right-10 text-white/50 hover:text-primary transition-colors p-4 z-50"
-        >
-          <ChevronRight size={48} strokeWidth={1} />
-        </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); onNext(); }}
+              className="absolute right-4 md:right-10 text-white/50 hover:text-primary transition-colors p-4 z-50"
+            >
+              <ChevronRight size={48} strokeWidth={1} />
+            </button>
+          </>
+        )}
 
         <div 
           className="max-w-5xl w-full max-h-[85vh] p-4 flex flex-col items-center"
@@ -86,7 +93,30 @@ export default function Lightbox({ item, onClose, onNext, onPrev }: LightboxProp
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                loading="lazy"
               ></iframe>
+            </div>
+          ) : item.vimeoId ? (
+            <div className="w-full aspect-video rounded-sm overflow-hidden shadow-2xl">
+              <iframe
+                src={`https://player.vimeo.com/video/${item.vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title={item.title}
+                loading="lazy"
+              ></iframe>
+            </div>
+          ) : item.videoUrl ? (
+            <div className="w-full aspect-video rounded-sm overflow-hidden shadow-2xl bg-black flex items-center justify-center">
+              <video 
+                src={item.videoUrl} 
+                controls 
+                autoPlay 
+                className="max-h-[75vh] w-auto"
+              />
             </div>
           ) : null}
 

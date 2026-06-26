@@ -43,7 +43,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-24 bg-[#121212] px-4 md:px-6 border-y border-border">
+      <section className="py-24 bg-muted/30 px-4 md:px-6 border-y border-border">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">Why Choose <span className="text-primary italic">PhotoZee?</span></h2>

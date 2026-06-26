@@ -14,7 +14,7 @@ export default function Portfolio() {
       exit={{ opacity: 0 }}
       className="bg-background pt-20"
     >
-      <section className="relative py-24 flex flex-col items-center justify-center text-center px-4 border-b border-border bg-[#121212]">
+      <section className="relative py-24 flex flex-col items-center justify-center text-center px-4 border-b border-border bg-muted/30">
         <motion.h1 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

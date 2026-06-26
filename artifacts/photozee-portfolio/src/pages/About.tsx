@@ -68,7 +68,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-[#121212] px-4 md:px-6">
+      <section className="py-24 bg-muted/30 px-4 md:px-6">
         <div className="container mx-auto grid md:grid-cols-2 gap-8">
           <motion.div 
             initial={{ y: 30, opacity: 0 }}

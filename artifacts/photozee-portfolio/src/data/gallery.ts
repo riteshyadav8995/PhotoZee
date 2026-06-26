@@ -4,6 +4,8 @@ export interface GalleryItem {
   category: "photos" | "reels" | "videos";
   imageUrl?: string;
   youtubeId?: string;
+  vimeoId?: string;
+  videoUrl?: string;
   thumbnail?: string;
   description: string;
 }
@@ -91,7 +93,7 @@ export const gallery: GalleryItem[] = [
     id: "v2",
     title: "Priya & Rahul — Highlight Reel",
     category: "videos",
-    youtubeId: "dQw4w9WgXcQ",
+    vimeoId: "76979871", // Example Vimeo ID
     thumbnail: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=80",
     description: "High energy, beautiful moments, and pure joy."
   },
@@ -107,7 +109,7 @@ export const gallery: GalleryItem[] = [
     id: "r1",
     title: "Pre-Wedding Teaser",
     category: "reels",
-    youtubeId: "dQw4w9WgXcQ",
+    videoUrl: "https://assets.mixkit.co/videos/40601/40601-720.mp4",
     thumbnail: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80",
     description: "A quick glimpse into a stunning pre-wedding shoot."
   },
@@ -115,7 +117,7 @@ export const gallery: GalleryItem[] = [
     id: "r2",
     title: "Venue Drone Tour",
     category: "reels",
-    youtubeId: "dQw4w9WgXcQ",
+    videoUrl: "https://assets.mixkit.co/videos/40601/40601-720.mp4",
     thumbnail: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
     description: "Sweeping aerial views of our favorite venue."
   },
@@ -123,7 +125,7 @@ export const gallery: GalleryItem[] = [
     id: "r3",
     title: "Behind the Scenes",
     category: "reels",
-    youtubeId: "dQw4w9WgXcQ",
+    videoUrl: "https://assets.mixkit.co/videos/40601/40601-720.mp4",
     thumbnail: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80",
     description: "A sneak peek at our creative process."
   }

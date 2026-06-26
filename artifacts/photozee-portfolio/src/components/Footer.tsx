@@ -3,7 +3,7 @@ import { SiInstagram, SiFacebook, SiYoutube, SiWhatsapp } from "react-icons/si";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f0f0f] border-t border-border py-12 text-foreground">
+    <footer className="bg-card border-t border-border py-12 text-foreground">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">

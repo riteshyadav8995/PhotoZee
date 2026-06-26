@@ -46,6 +46,59 @@ export default function Home() {
     >
       <Hero />
 
+      {/* Brand Introduction */}
+      <section className="py-24 px-4 md:px-6 container mx-auto text-center max-w-4xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">
+            Welcome to <span className="text-primary italic">PhotoZee</span>
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            We are a luxury cinematography and photography studio dedicated to capturing life's most precious moments with an artistic, cinematic flair. With over a decade of experience across the globe, our passion is transforming your special days into timeless masterpieces that you and your family will cherish forever.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Featured Highlight Video */}
+      <section className="py-24 px-4 md:px-6 container mx-auto bg-card border-b border-border">
+        <div className="text-center mb-12">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-serif text-4xl md:text-5xl font-bold mb-4"
+          >
+            Featured <span className="text-primary italic">Highlight</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-muted-foreground max-w-2xl mx-auto"
+          >
+            Experience the magic of our cinematic storytelling.
+          </motion.p>
+        </div>
+        <div className="max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl aspect-video relative bg-black flex items-center justify-center">
+          <video
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            controls
+            playsInline
+            src="https://assets.mixkit.co/videos/40601/40601-720.mp4"
+            poster="https://images.unsplash.com/photo-1510771463146-e89e6e86560e?auto=format&fit=crop&w=1920&q=80"
+          >
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+
       {/* Featured Work */}
       <section className="py-24 px-4 md:px-6 container mx-auto">
         <div className="text-center mb-16">
@@ -76,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-24 px-4 md:px-6 bg-[#121212]">
+      <section className="py-24 px-4 md:px-6 bg-muted/30">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <motion.h2 

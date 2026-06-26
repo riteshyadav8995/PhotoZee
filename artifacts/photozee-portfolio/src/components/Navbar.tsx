@@ -1,20 +1,36 @@
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 export default function Navbar() {
   const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
+    
+    // Check initial dark mode state
+    setIsDark(document.documentElement.classList.contains('dark'));
+    
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    if (root.classList.contains('dark')) {
+      root.classList.remove('dark');
+      setIsDark(false);
+    } else {
+      root.classList.add('dark');
+      setIsDark(true);
+    }
+  };
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -52,22 +68,40 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="bg-primary text-primary-foreground px-6 py-2 rounded-full font-medium transition-transform hover:scale-105"
-            >
-              Book Now
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/contact"
+                className="bg-primary text-primary-foreground px-6 py-2 rounded-full font-medium transition-transform hover:scale-105"
+              >
+                Book Now
+              </Link>
+              <button 
+                onClick={toggleTheme}
+                className="p-2 rounded-full bg-card border border-border text-foreground hover:text-primary hover:border-primary transition-colors flex items-center justify-center shadow-sm"
+                aria-label="Toggle Theme"
+              >
+                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+            </div>
           </div>
 
-          {/* Mobile Toggle */}
-          <button
-            className="md:hidden text-foreground z-50 p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Toggle & Theme */}
+          <div className="md:hidden flex items-center gap-4 z-50">
+            <button 
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-card border border-border text-foreground hover:text-primary transition-colors flex items-center justify-center shadow-sm"
+              aria-label="Toggle Theme"
+            >
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <button
+              className="text-foreground p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 

@@ -28,17 +28,12 @@ export default function ServiceCard({ service, index = 0 }: { service: Service; 
       </p>
       
       <ul className="space-y-2 mb-8 flex-grow">
-        {service.features.slice(0, 3).map((feature, i) => (
+        {service.features.map((feature, i) => (
           <li key={i} className="flex items-start text-sm text-muted-foreground/80">
             <Icons.Check size={16} className="text-primary mr-2 mt-0.5 shrink-0" />
             <span>{feature}</span>
           </li>
         ))}
-        {service.features.length > 3 && (
-          <li className="text-sm text-primary italic font-serif">
-            + {service.features.length - 3} more features
-          </li>
-        )}
       </ul>
       
       <div className="mt-auto pt-4 border-t border-border">

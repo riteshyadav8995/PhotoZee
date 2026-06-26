@@ -1,15 +1,21 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
+const backgroundImages = [
+  "https://images.unsplash.com/photo-1519225421980-716e6f8cce58?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1920&q=80"
+];
+
 export default function Hero() {
-  const [count, setCount] = useState(0);
+  const [bgIndex, setBgIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCount((c) => (c + 1) % 100);
-    }, 50);
+      setBgIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -21,15 +27,28 @@ export default function Hero() {
     duration: Math.random() * 10 + 10,
   }));
 
+  const scrollToNext = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth"
+    });
+  };
+
   return (
-    <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-background">
+    <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Background Image & Overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1519225421980-716e6f8cce58?auto=format&fit=crop&w=1920&q=80")' }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90"></div>
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={bgIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{ backgroundImage: `url("${backgroundImages[bgIndex]}")` }}
+        />
+      </AnimatePresence>
+      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background/95 z-0"></div>
 
       {/* Particles */}
       {particles.map((p) => (
@@ -50,7 +69,7 @@ export default function Hero() {
       ))}
 
       {/* Content */}
-      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto mt-20">
+      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center pt-20 pb-32 h-full">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,7 +92,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full"
         >
           <Link
             href="/portfolio"
@@ -91,14 +110,15 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-muted-foreground flex flex-col items-center gap-2"
-        animate={{ y: [0, 10, 0] }}
+      <motion.button
+        onClick={scrollToNext}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 text-muted-foreground flex flex-col items-center gap-2 cursor-pointer hover:text-primary transition-colors bg-background/50 backdrop-blur-sm p-4 rounded-full border border-border/50"
+        animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <span className="text-[10px] uppercase tracking-widest font-bold">Scroll</span>
         <ChevronDown size={20} className="text-primary" />
-      </motion.div>
+      </motion.button>
     </div>
   );
 }

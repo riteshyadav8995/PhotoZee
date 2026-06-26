@@ -17,7 +17,7 @@ export default function Testimonials() {
       exit={{ opacity: 0 }}
       className="bg-background pt-20"
     >
-      <section className="py-24 text-center px-4 bg-[#121212] border-b border-border">
+      <section className="py-24 text-center px-4 bg-muted/30 border-b border-border">
         <motion.h1 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -41,7 +41,7 @@ export default function Testimonials() {
         </div>
       </section>
       
-      <section className="py-20 text-center border-t border-border bg-[#121212]">
+      <section className="py-20 text-center border-t border-border bg-muted/30">
         <h2 className="font-serif text-3xl font-bold mb-6">Become Our Next Success Story</h2>
         <Link href="/contact" className="inline-block px-8 py-3 bg-primary text-primary-foreground font-medium rounded-full hover:bg-primary/90 transition-colors">
           Contact Us Today

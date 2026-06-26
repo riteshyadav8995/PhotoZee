@@ -39,16 +39,25 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
     
-    toast({
-      title: "Inquiry Sent Successfully",
-      description: "Thank you for reaching out! We will get back to you within 24 hours.",
-    });
-    
-    form.reset();
-    setIsSubmitting(false);
+    try {
+      // Simulate network request since there is no backend configured
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      toast({
+        title: "Inquiry Sent Successfully",
+        description: "Thank you for reaching out! We will get back to you within 24 hours.",
+      });
+      form.reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "There was a problem submitting your inquiry. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

@@ -16,7 +16,7 @@ export default function Contact() {
       exit={{ opacity: 0 }}
       className="bg-background pt-20"
     >
-      <section className="relative py-24 bg-[#121212] border-b border-border px-4">
+      <section className="relative py-24 bg-muted/30 border-b border-border px-4">
         <div className="container mx-auto text-center max-w-3xl">
           <motion.h1 
             initial={{ y: 20, opacity: 0 }}
@@ -95,19 +95,24 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Social Links */}
+            {/* Social & Chat Links */}
             <div>
-              <h3 className="font-bold text-lg mb-4">Follow Our Work</h3>
-              <div className="flex gap-4">
-                <a href="#" className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all">
-                  <SiInstagram size={20} />
+              <h3 className="font-bold text-lg mb-4">Quick Connect</h3>
+              <div className="flex flex-col gap-3">
+                <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-lg bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 font-medium hover:bg-[#25D366] hover:text-white transition-all shadow-sm">
+                  <SiWhatsapp size={24} />
+                  Chat with us on WhatsApp
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all">
-                  <SiFacebook size={20} />
-                </a>
-                <a href="#" className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all">
-                  <SiWhatsapp size={20} />
-                </a>
+                <div className="flex gap-3">
+                  <a href="https://instagram.com/photozee" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-card border border-border hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] transition-all shadow-sm">
+                    <SiInstagram size={20} />
+                    Instagram
+                  </a>
+                  <a href="https://facebook.com/photozee" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-card border border-border hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all shadow-sm">
+                    <SiFacebook size={20} />
+                    Facebook
+                  </a>
+                </div>
               </div>
             </div>
 
