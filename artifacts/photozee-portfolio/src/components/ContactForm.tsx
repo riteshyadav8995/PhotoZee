@@ -41,36 +41,19 @@ export default function ContactForm() {
     setIsSubmitting(true);
     
     try {
-      // 1. Send data to dummy Formspree URL
+      // Send data to Formspree
       await fetch("https://formspree.io/f/dummy123", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
-      }).catch(err => console.error("Formspree error:", err)); // Ignore dummy fetch errors
-      
-      // 2. Build WhatsApp message
-      const whatsappNumber = "919876543210"; // Dummy company number
-      const text = `Hello PhotoZee, I would like to inquire about your services:
-
-*Name:* ${data.name}
-*Email:* ${data.email}
-*Phone:* ${data.phone}
-*Event Type:* ${data.eventType}
-*Event Date:* ${data.eventDate}
-*Details:* ${data.message}`;
-
-      const encodedText = encodeURIComponent(text);
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+      }).catch(err => console.error("Formspree error:", err)); // Ignore dummy fetch errors for demo
       
       toast({
-        title: "Redirecting to WhatsApp...",
-        description: "Opening chat with PhotoZee.",
+        title: "Inquiry Sent Successfully",
+        description: "Thank you for reaching out! We will get back to you within 24 hours.",
       });
-      
-      // 3. Redirect to WhatsApp
-      window.open(whatsappUrl, "_blank");
       
       form.reset();
     } catch (error) {
