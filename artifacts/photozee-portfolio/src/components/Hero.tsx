@@ -4,9 +4,9 @@ import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const backgroundImages = [
-  "https://images.unsplash.com/photo-1519225421980-716e6f8cce58?auto=format&fit=crop&w=1920&q=80",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1920&q=80",
-  "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1920&q=80"
+  "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/wedding2_qfo2pc.jpg",
+  "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488594/SaveInta.com_624627466_17995701566911910_8825584311455916062_n_j7nuri.jpg",
+  "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/prewedding1_ouprmc.jpg"
 ];
 
 export default function Hero() {

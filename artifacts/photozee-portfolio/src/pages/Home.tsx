@@ -91,8 +91,8 @@ export default function Home() {
             loop
             controls
             playsInline
-            src="https://assets.mixkit.co/videos/40601/40601-720.mp4"
-            poster="https://images.unsplash.com/photo-1510771463146-e89e6e86560e?auto=format&fit=crop&w=1920&q=80"
+            src="https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488600/video1_ewxsrt.mp4"
+            poster="https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/wedding1_o1mumx.jpg"
           >
             Your browser does not support the video tag.
           </video>
@@ -155,7 +155,7 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 border-y border-border relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80')] bg-fixed bg-cover bg-center">
+      <section className="py-20 border-y border-border relative overflow-hidden bg-[url('https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488592/SaveInta.com_508320538_17876796864357301_7959524437596980884_n_gkyupb.jpg')] bg-fixed bg-cover bg-center">
         <div className="absolute inset-0 bg-background/90 backdrop-blur-sm z-0"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -203,7 +203,7 @@ export default function Home() {
 
       {/* CTA */}
       <section className="py-32 text-center px-4 bg-primary/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1920&q=80')] bg-cover bg-center opacity-5"></div>
+        <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488593/SaveInta.com_508340020_17876796807357301_258699174900690809_n_wc1cvu.jpg')] bg-cover bg-center opacity-5"></div>
         <div className="container mx-auto relative z-10 max-w-3xl">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}

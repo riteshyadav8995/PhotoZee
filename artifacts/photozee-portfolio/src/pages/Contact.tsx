@@ -118,7 +118,7 @@ export default function Contact() {
 
             {/* Map Placeholder */}
             <div className="w-full h-64 bg-card border border-border rounded-lg overflow-hidden relative flex items-center justify-center">
-              <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80')] bg-cover bg-center grayscale"></div>
+              <div className="absolute inset-0 opacity-20 bg-[url('https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/prewedding1_ouprmc.jpg')] bg-cover bg-center grayscale"></div>
               <div className="relative z-10 text-center">
                 <MapPin className="text-primary w-8 h-8 mx-auto mb-2" />
                 <p className="font-serif text-xl font-bold">Mumbai, India</p>
