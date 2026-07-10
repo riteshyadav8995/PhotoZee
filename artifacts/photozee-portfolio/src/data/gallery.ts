@@ -124,7 +124,7 @@ export const gallery: GalleryItem[] = [
     title: "Cinematic Wedding Film",
     category: "videos",
     videoUrl: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488600/video1_ewxsrt.mp4",
-    thumbnail: "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/wedding1_o1mumx.jpg",
+    thumbnail: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488600/video1_ewxsrt.jpg",
     description: "A beautifully captured wedding story."
   },
   {
@@ -132,7 +132,7 @@ export const gallery: GalleryItem[] = [
     title: "Pre-Wedding Highlight",
     category: "videos",
     videoUrl: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488595/video4_sbrswy.mp4",
-    thumbnail: "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/prewedding1_ouprmc.jpg",
+    thumbnail: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488595/video4_sbrswy.jpg",
     description: "A glimpse into their love story."
   },
   {
@@ -140,7 +140,7 @@ export const gallery: GalleryItem[] = [
     title: "The Grand Celebration",
     category: "videos",
     videoUrl: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488595/video2_yui2q8.mp4",
-    thumbnail: "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/wedding2_qfo2pc.jpg",
+    thumbnail: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488595/video2_yui2q8.jpg",
     description: "Energy, dancing, and pure joy."
   },
 
@@ -150,7 +150,7 @@ export const gallery: GalleryItem[] = [
     title: "Trending Reel 1",
     category: "reels",
     videoUrl: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488594/SaveInta.com_AQMOBJmQmE6hmV5HfDwCFPE-agIqHMDZ5wn97jAAWvDBJ4D1LaeQVToDAstRTs5MbLFtCsDB24WqBwLGfLoE_u3aaEal-DeGemD5yYw_w0lbdu.mp4",
-    thumbnail: "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488595/image4_apo9z3.jpg",
+    thumbnail: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488594/SaveInta.com_AQMOBJmQmE6hmV5HfDwCFPE-agIqHMDZ5wn97jAAWvDBJ4D1LaeQVToDAstRTs5MbLFtCsDB24WqBwLGfLoE_u3aaEal-DeGemD5yYw_w0lbdu.jpg",
     description: "Quick cinematic moments."
   },
   {
@@ -158,7 +158,7 @@ export const gallery: GalleryItem[] = [
     title: "Trending Reel 2",
     category: "reels",
     videoUrl: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488595/video3_x6np3d.mp4",
-    thumbnail: "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488594/SaveInta.com_624627466_17995701566911910_8825584311455916062_n_j7nuri.jpg",
+    thumbnail: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488595/video3_x6np3d.jpg",
     description: "Behind the scenes and highlights."
   },
   {
@@ -166,7 +166,7 @@ export const gallery: GalleryItem[] = [
     title: "Trending Reel 3",
     category: "reels",
     videoUrl: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488592/SaveInta.com_AQO86TPp7vWISQW4PogK5KgSAnNZ7yacrt9Pr3GjZr4ZbLfkNp5gqYQx1aHektbuIgtpDsTI-B8GfVN9EawKxhkcRjjDRwSR9A07UQA_qws0z3.mp4",
-    thumbnail: "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488592/SaveInta.com_508287237_17876791116357301_5011568847029135790_n_uezt2i.jpg",
+    thumbnail: "https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488592/SaveInta.com_AQO86TPp7vWISQW4PogK5KgSAnNZ7yacrt9Pr3GjZr4ZbLfkNp5gqYQx1aHektbuIgtpDsTI-B8GfVN9EawKxhkcRjjDRwSR9A07UQA_qws0z3.jpg",
     description: "Short and sweet memories."
   }
 ];

@@ -37,6 +37,25 @@ export default function Home() {
     document.title = "PhotoZee | Luxury Wedding & Event Cinematography";
   }, []);
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isVideoInView = useInView(videoRef, { amount: 0.5 });
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isVideoInView) {
+        videoRef.current.play().catch((e) => {
+          console.log("Browser blocked unmuted autoplay. Falling back to muted autoplay.", e);
+          if (videoRef.current) {
+            videoRef.current.muted = true;
+            videoRef.current.play().catch(console.error);
+          }
+        });
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [isVideoInView]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -85,14 +104,12 @@ export default function Home() {
         </div>
         <div className="max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl aspect-video relative bg-black flex items-center justify-center">
           <video
+            ref={videoRef}
             className="w-full h-full object-cover"
-            autoPlay
-            muted
             loop
-            controls
             playsInline
-            src="https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488600/video1_ewxsrt.mp4"
-            poster="https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/wedding1_o1mumx.jpg"
+            src="https://assets.mixkit.co/videos/40601/40601-720.mp4"
+            poster="https://images.unsplash.com/photo-1510771463146-e89e6e86560e?auto=format&fit=crop&w=1920&q=80"
           >
             Your browser does not support the video tag.
           </video>

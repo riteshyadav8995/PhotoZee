@@ -1,8 +1,34 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, Maximize2 } from "lucide-react";
 import { gallery } from "@/data/gallery";
 import Lightbox from "./Lightbox";
+
+const HoverVideo = ({ src }: { src: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((err) => {
+        console.log("Hover unmuted autoplay blocked, falling back to muted", err);
+        if (videoRef.current) {
+          videoRef.current.muted = true;
+          videoRef.current.play().catch(console.error);
+        }
+      });
+    }
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      className="w-full h-full object-cover"
+      loop
+      playsInline
+    />
+  );
+};
 
 interface PortfolioGridProps {
   limit?: number;
@@ -12,6 +38,7 @@ interface PortfolioGridProps {
 export default function PortfolioGrid({ limit, showFilters = true }: PortfolioGridProps) {
   const [filter, setFilter] = useState<"all" | "photos" | "videos" | "reels">("all");
   const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [hoveredVideoId, setHoveredVideoId] = useState<string | null>(null);
 
   const filters = [
     { id: "all", label: "All Work" },
@@ -73,29 +100,43 @@ export default function PortfolioGrid({ limit, showFilters = true }: PortfolioGr
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
               key={item.id}
-              className={`relative group rounded-lg overflow-hidden cursor-pointer bg-card border border-border ${
-                item.category === "reels" ? "aspect-[9/16]" : "aspect-[4/3]"
-              }`}
+              className="relative group rounded-lg overflow-hidden cursor-pointer bg-card border border-border aspect-[4/3]"
+              onMouseEnter={() => {
+                if (item.category === "videos" || item.category === "reels") {
+                  setHoveredVideoId(item.id);
+                }
+              }}
+              onMouseLeave={() => {
+                if (item.category === "videos" || item.category === "reels") {
+                  setHoveredVideoId(null);
+                }
+              }}
               onClick={() => setSelectedItem(item)}
             >
-              <img
-                src={item.imageUrl || item.thumbnail}
-                alt={item.title}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  target.onerror = null;
-                  target.src = "https://images.unsplash.com/photo-1519225421980-716e6f8cce58?auto=format&fit=crop&w=800&q=80";
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <h3 className="font-serif text-xl font-bold text-white mb-1">{item.title}</h3>
-                <p className="text-sm text-primary uppercase tracking-wider">{item.category}</p>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/50 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100 scale-50 group-hover:scale-100">
-                  {item.category === "photos" ? <Maximize2 size={24} /> : <Play size={24} className="ml-1" />}
-                </div>
-              </div>
+              {hoveredVideoId === item.id && (item.category === "videos" || item.category === "reels") ? (
+                <HoverVideo src={item.videoUrl!} />
+              ) : (
+                <>
+                  <img
+                    src={item.imageUrl || item.thumbnail}
+                    alt={item.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.onerror = null;
+                      target.src = "https://images.unsplash.com/photo-1519225421980-716e6f8cce58?auto=format&fit=crop&w=800&q=80";
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <h3 className="font-serif text-xl font-bold text-white mb-1">{item.title}</h3>
+                    <p className="text-sm text-primary uppercase tracking-wider">{item.category}</p>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/50 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100 scale-50 group-hover:scale-100">
+                      {item.category === "photos" ? <Maximize2 size={24} /> : <Play size={24} className="ml-1" />}
+                    </div>
+                  </div>
+                </>
+              )}
             </motion.div>
           ))}
         </AnimatePresence>
