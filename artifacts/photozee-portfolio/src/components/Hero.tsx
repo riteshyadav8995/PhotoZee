@@ -4,9 +4,9 @@ import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const backgroundImages = [
-  "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/wedding2_qfo2pc.jpg",
-  "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488594/SaveInta.com_624627466_17995701566911910_8825584311455916062_n_j7nuri.jpg",
-  "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/prewedding1_ouprmc.jpg"
+  { url: "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/wedding2_qfo2pc.jpg", position: "bg-center" },
+  { url: "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488594/SaveInta.com_624627466_17995701566911910_8825584311455916062_n_j7nuri.jpg", position: "bg-[center_15%]" },
+  { url: "https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/prewedding1_ouprmc.jpg", position: "bg-[center_15%]" }
 ];
 
 export default function Hero() {
@@ -44,8 +44,8 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
-          className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ backgroundImage: `url("${backgroundImages[bgIndex]}")` }}
+          className={`absolute inset-0 bg-cover z-0 ${backgroundImages[bgIndex].position}`}
+          style={{ backgroundImage: `url("${backgroundImages[bgIndex].url}")` }}
         />
       </AnimatePresence>
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background/95 z-0"></div>
