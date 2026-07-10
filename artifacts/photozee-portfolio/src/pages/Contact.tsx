@@ -104,7 +104,7 @@ export default function Contact() {
                   Chat with us on WhatsApp
                 </a>
                 <div className="flex gap-3">
-                  <a href="https://instagram.com/photozee" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-card border border-border hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] transition-all shadow-sm">
+                  <a href="https://www.instagram.com/photozee500/" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-card border border-border hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] transition-all shadow-sm">
                     <SiInstagram size={20} />
                     Instagram
                   </a>

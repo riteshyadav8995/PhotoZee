@@ -16,7 +16,7 @@ export default function Footer() {
               Capturing moments, crafting memories. We transform your most precious events into timeless cinematic masterpieces.
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors p-2">
+              <a href="https://www.instagram.com/photozee500/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-2">
                 <SiInstagram size={24} />
               </a>
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors p-2">
