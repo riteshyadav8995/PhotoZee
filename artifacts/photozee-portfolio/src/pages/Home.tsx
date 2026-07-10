@@ -108,8 +108,8 @@ export default function Home() {
             className="w-full h-full object-cover"
             loop
             playsInline
-            src="https://assets.mixkit.co/videos/40601/40601-720.mp4"
-            poster="https://images.unsplash.com/photo-1510771463146-e89e6e86560e?auto=format&fit=crop&w=1920&q=80"
+            src="https://res.cloudinary.com/dyzdppaqu/video/upload/v1783488600/video1_ewxsrt.mp4"
+            poster="https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/wedding1_o1mumx.jpg"
           >
             Your browser does not support the video tag.
           </video>

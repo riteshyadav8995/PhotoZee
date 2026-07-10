@@ -17,7 +17,7 @@ export default function About() {
     >
       {/* Hero */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1529636798458-92182e662485?w=1920&q=80')] bg-cover bg-center">
+        <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/wedding2_qfo2pc.jpg')] bg-cover bg-[center_15%]">
           <div className="absolute inset-0 bg-background/80"></div>
         </div>
         <div className="relative z-10 text-center px-4">
@@ -57,7 +57,7 @@ export default function About() {
             className="relative"
           >
             <div className="aspect-[4/5] rounded-lg overflow-hidden border border-border">
-              <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Our Studio" className="w-full h-full object-cover" />
+              <img src="https://res.cloudinary.com/dyzdppaqu/image/upload/v1783488596/prewedding1_ouprmc.jpg" alt="Our Studio" className="w-full h-full object-cover" />
             </div>
             <div className="absolute -bottom-8 -left-8 bg-card border border-border p-6 rounded-lg shadow-2xl max-w-xs hidden md:block">
               <Star className="text-primary mb-2" size={32} />
@@ -94,35 +94,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-24 container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">Meet The <span className="text-primary italic">Masters</span></h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">The artists behind the lens.</p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member, i) => (
-            <motion.div 
-              key={member.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group"
-            >
-              <div className="aspect-[3/4] rounded-lg overflow-hidden mb-6 relative bg-muted">
-                <img src={member.image} alt={member.name} loading="lazy" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                  <span className="text-primary font-medium">{member.experience}+ Years Exp.</span>
-                </div>
-              </div>
-              <h3 className="font-serif text-2xl font-bold">{member.name}</h3>
-              <p className="text-primary font-medium mb-3 uppercase tracking-wider text-sm">{member.role}</p>
-              <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* Timeline */}
       <section className="py-24 bg-card border-t border-border px-4 md:px-6">

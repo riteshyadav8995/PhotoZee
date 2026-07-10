@@ -24,14 +24,14 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: "t2",
-    name: "Michael Chen",
+    name: "Rahul Sharma",
     event: "Tech Innovators Summit",
     eventType: "Corporate",
     rating: 5,
-    review: "Professional, unobtrusive, and the final video was a masterpiece. They made our corporate event look like a Hollywood premiere.",
+    review: "Professional, unobtrusive, and the final video was a masterpiece. They made our corporate event look like a Bollywood premiere.",
     date: "March 2024",
     location: "Mumbai, India",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80"
+    avatar: "https://images.unsplash.com/photo-1555952517-2e8e729e0b44?w=200&q=80"
   },
   {
     id: "t3",
@@ -46,14 +46,14 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: "t4",
-    name: "Sarah Jenkins",
-    event: "Sarah's 30th Gala",
+    name: "Aditi Verma",
+    event: "Aditi's 30th Birthday Gala",
     eventType: "Birthday",
     rating: 5,
     review: "I wanted my 30th to feel epic, and PhotoZee delivered. The candid moments they caught are priceless.",
     date: "February 2024",
     location: "Delhi, India",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80"
+    avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&q=80"
   },
   {
     id: "t5",
@@ -68,14 +68,14 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: "t6",
-    name: "David Smith",
+    name: "Vikash Gupta",
     event: "Nexus Launch Event",
     eventType: "Corporate",
     rating: 5,
     review: "A highly talented team that understands brand storytelling. The highlight reel they produced was perfect for our marketing campaign.",
     date: "January 2024",
     location: "Bangalore, India",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
+    avatar: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=200&q=80"
   },
   {
     id: "t7",
